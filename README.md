@@ -1,3 +1,5 @@
+![dockerizar una aplicación con Spring Boot ](./resources/assets/imagen.png)
+
 # Read Me First
 The following was discovered as part of building this project:
 
