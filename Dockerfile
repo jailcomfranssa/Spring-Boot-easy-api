@@ -1,0 +1,25 @@
+# IMAGEM MODELO
+FROM eclipse-temurin:17.0.11_9-jdk
+
+#PORTA DE EXERCICAO DO CONTENADOR
+EXPOSE 8080
+
+#DEFINIR DIRETPORIO RAIZ DO CONTENADOR
+WORKDIR /root
+
+#COPIAR E GAR ARQUIVOS DO CONTENADOR
+COPY ./pom.xml /root
+COPY ./.mvn /root/.mvn
+COPY ./mvnw /root
+
+#DESCARREGAR AS DEPEDENCIAS
+RUN ./mvnw dependency:go-offline
+
+#COPIAR O CODIGO FONTE DENTRO DO CONTENADOR
+COPY ./src /root/src
+
+#CONSTRUIR NOSSA APLICAÇÃO
+RUN ./mvnw clean install -DskipTests
+
+#LEVANTAR NOSSA APLICAÇÃO
+ENTRYPOINT ["java", "-jar","/root/target/transaction-api-0.0.1-SNAPSHOT.jar"]
