@@ -6,6 +6,11 @@ The following was discovered as part of building this project:
 * The original package name 'github.com.jailcomfranssa.transaction-api' is invalid and this project uses 'github.com.jailcomfranssa.transaction_api' instead.
 
 # Getting Started
+1- docker-compose up
+
+2- http://localhost:8080/swagger-ui.html
+
+#
 
 ### Reference Documentation
 For further reference, please consider the following sections:
